@@ -1,13 +1,18 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>favorites</ion-title>   
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title>Favorite quotes</ion-title>
+    </ion-navbar>  
 </ion-header>
-
-
+  
 <ion-content padding>
+  <ion-card *ngFor="let quote of quoteService.getFavoriteQuotes()">
+    <ion-card-header>
+      <p>#{{ quote.id }}</p>      
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ quote.text }}</p>
+      <p class="author">{{ quote.person }}</p>
+    </ion-card-content>     
+  </ion-card>
 </ion-content>
-
-<ion-footer>
-</ion-footer>
 

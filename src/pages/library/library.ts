@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Quote } from '../../data/quote.interface';
-import quotes from '../../data/quotes';
+import { QuotesService } from '../../services/quotes';
 import { QuotesPage } from '../quotes/quotes';
 
 @IonicPage()
@@ -11,22 +11,17 @@ import { QuotesPage } from '../quotes/quotes';
 })
 export class LibraryPage implements OnInit{
 
-  private quotesPage = QuotesPage;
-  private quoteCollection:{category:string, quotes:Quote[], icon:string}[];
+  private quotesPage = QuotesPage;  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private quoteService: QuotesService
+  ) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LibraryPage');
-  }
+  ngOnInit(){}
 
-  ngOnInit(){
-    this.quoteCollection = quotes;        
-  }
-
-  private buttonClicked(quote:{category:string, quotes:Quote[], icon:string}){       
-    //console.log(quote);
+  private buttonClicked(quote:{category:string, quotes:Quote[], icon:string}){           
     this.navCtrl.push(QuotesPage, quote);
   }
 
