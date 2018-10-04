@@ -76,13 +76,13 @@ export class QuotesService{
     ];  
 
     public getAvailableQuotes():{category:string, quotes:Quote[], icon:string}[]{
-        return this.availableQuotes;
+        return this.availableQuotes.slice();
     }
 
     private favoriteQuotes : Quote[] = [];
 
     public getFavoriteQuotes():Quote[]{
-        return this.favoriteQuotes;
+        return this.favoriteQuotes.slice();
     }
 
     public pushToFavoriteQuotes(quote:Quote):void{
