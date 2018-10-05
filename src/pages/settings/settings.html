@@ -1,12 +1,27 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>settings</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+       <ion-grid>
+        <ion-row>
+          <button ion-button menuToggle>
+            <ion-icon name="menu" item-left></ion-icon>
+          </button>
+          <ion-title item-right>Settings</ion-title>
+        </ion-row>
+      </ion-grid>      
+    </ion-navbar>  
 </ion-header>
 
-
 <ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label>Alternative Background</ion-label>
+      </ion-col>
+      <ion-col size="3">
+        <!--<ion-toggle color="secondary" (ionChange)="onToggleChanged($event)"></ion-toggle>-->
+        <ion-toggle color="primary" [(ngModel)]="settingsService.alternativeBackground"></ion-toggle>
+      </ion-col>
+    </ion-row>   
+  </ion-grid>
 
 </ion-content>
